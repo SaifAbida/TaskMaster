@@ -1,0 +1,183 @@
+body {
+  font-family: "Rubik";
+}
+
+.logBtn {
+  margin-left: 1500px;
+}
+
+.listBtn {
+  margin-left: 1400px;
+}
+
+.navbar-brand {
+  margin-left: 50px;
+  color: #00246b;
+  font-size: 25px;
+}
+
+nav {
+  height: 100px;
+  background-color: #cadcfc;
+}
+
+.nav-item {
+  margin-right: 20px;
+  color: #00246b;
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginContainer {
+  margin-top: 150px;
+  background-color: #cadcfc;
+  width: 600px;
+  height: 530px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.loginContainer input {
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+}
+
+.loginContainer button {
+  margin-top: 20px;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 20px;
+  color: #00246b;
+  font-size: 20px;
+  transition: background-color ease 0.25s;
+}
+.loginContainer button:hover {
+  background-color: #f3f6fd;
+}
+
+.loginContainer h1 {
+  margin-top: 20px;
+  color: #00246b;
+}
+
+.settingsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.notification {
+  margin: 20px;
+  color: #00246b;
+}
+
+.inputContainer {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.inputContainer input,
+.inputContainer textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+
+.inputContainer .updateBtn {
+  border: none;
+  color: #00246b;
+  background-color: #cadcfc;
+  padding: 10px 25px;
+  border-radius: 20px;
+  transition: background-color ease 0.25s;
+}
+
+.inputContainer .updateBtn:hover {
+  background-color: hsla(218, 89%, 89%, 0.8);
+}
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note button {
+  border: none;
+  color: #00246b;
+  background-color: #cadcfc;
+  margin: 5px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.note button:hover {
+  background-color: hsla(218, 89%, 89%, 0.8);
+}
+
+.blogContainer{
+    width: 95%;
+    margin: auto;
+}
+.homePagePhrase {
+  color: #00246b;
+  font-size: 100px;
+  margin: 100px 50px;
+  padding: 80px;
+}
+.notFoundContainer {
+  display: flex;
+  justify-content: center;
+
+}
+
+.PageNotFound {
+  color: #00246b;
+  font-size: 100px;
+  margin-top: 100px;
+}
+
+.undoBtn {
+  border: none;
+  color: #00246b;
+  background-color: #fccaca;
+  padding: 10px 25px;
+  border-radius: 20px;
+  margin-left: 10px;
+  transition: background-color ease 0.25s;
+}
+
+.undoBtn:hover {
+  background-color: hsla(0, 89%, 89%, 0.8);
+}

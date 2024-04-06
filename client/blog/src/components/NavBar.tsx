@@ -1,9 +1,25 @@
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
   const navigate = useNavigate();
 
   function handleLogout() {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: "info",
+      title: "Signed out successfully",
+    });
     localStorage.removeItem("token");
     navigate("/login");
   }

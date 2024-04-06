@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 type UpdateType = {
   username: string;
@@ -8,14 +9,13 @@ type UpdateType = {
 };
 
 type ResetType = {
+  currentPassword: string;
   password: string;
   confirmPassword: string;
 };
 
 const Settings = () => {
   const [update, setUpdate] = useState<UpdateType>({} as UpdateType);
-  const [updateMessage, setUpdateMessage] = useState<string>("");
-  const [resetMessage, setResetMessage] = useState<string>("");
   const [reset, setReset] = useState<ResetType>({} as ResetType);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -71,11 +71,23 @@ const Settings = () => {
           username: res.data.username,
           email: res.data.email,
         });
-        setUpdateMessage("Updated successfully");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Updated successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.error(error);
-        setUpdateMessage("Updating failed");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Updating failed!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   }
 
@@ -89,14 +101,27 @@ const Settings = () => {
       })
       .then((res: AxiosResponse) => {
         setReset({
+          currentPassword: "",
           password: "",
           confirmPassword: "",
         });
-        setResetMessage(res.data);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: res.data,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.error(error);
-        setResetMessage(error.response.data);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: error.response.data,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   }
 
@@ -126,13 +151,20 @@ const Settings = () => {
             <br />
             <button type="submit">Update</button>
           </form>
-          <p className="notification">{updateMessage}</p>
         </div>
       </div>
       <div className="container-fluid">
         <div className="loginContainer">
           <h1>Reset Password</h1>
           <form onSubmit={handleSubmitReset}>
+            <input
+              type="password"
+              name="currentPassword"
+              placeholder="Enter your current password"
+              required
+              value={reset.currentPassword}
+              onChange={handleReset}
+            />
             <input
               type="password"
               name="password"
@@ -145,7 +177,7 @@ const Settings = () => {
             <input
               type="password"
               name="confirmPassword"
-              placeholder="confirm your password"
+              placeholder="Confirm your password"
               required
               value={reset.confirmPassword}
               onChange={handleReset}
@@ -153,7 +185,6 @@ const Settings = () => {
             <br />
             <button type="submit">Reset</button>
           </form>
-          <p className="notification">{resetMessage}</p>
         </div>
       </div>
     </div>

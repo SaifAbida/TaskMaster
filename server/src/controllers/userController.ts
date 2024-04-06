@@ -76,8 +76,12 @@ export class UpdateAccount {
   }
   static async passwordReset(req: AuthentificatedRequest, res: Response) {
     try {
-      const { password, confirmPassword } = req.body;
+      const { currentPassword,password, confirmPassword } = req.body;
       let user = await User.findById(req.user.id);
+      const oldPassword = bcrypt.compareSync(currentPassword,user.password)
+      if(!oldPassword){
+        return res.status(400).send("Your current password is incorrect");
+      }
       const samePassword = bcrypt.compareSync(password, user.password);
       if (samePassword) {
         return res.status(400).send("Bad Request");

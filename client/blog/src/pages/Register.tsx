@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 type registerType = {
   username: string;
@@ -24,6 +25,13 @@ const Register = () => {
     axios
       .post("http://127.0.0.1:8080/create", register)
       .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Account created!",
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate("/login");
       })
       .catch((error) => {

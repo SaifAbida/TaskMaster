@@ -168,7 +168,7 @@ const Settings = () => {
             <input
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Enter your new password"
               required
               value={reset.password}
               onChange={handleReset}
@@ -177,7 +177,7 @@ const Settings = () => {
             <input
               type="password"
               name="confirmPassword"
-              placeholder="Confirm your password"
+              placeholder="Confirm your new password"
               required
               value={reset.confirmPassword}
               onChange={handleReset}
